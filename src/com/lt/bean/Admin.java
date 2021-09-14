@@ -38,4 +38,22 @@ public class Admin extends User {
 		this.phoneNumber = phoneNumber;
 	}
 
+	public Admin(int adminId, String name, String gender, long phoneNumber) {
+		super();
+		this.adminId = adminId;
+		this.name = name;
+		this.gender = gender;
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Admin() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", name=" + name + ", gender=" + gender + ", phoneNumber=" + phoneNumber
+				+ "]";
+	}
+
 }

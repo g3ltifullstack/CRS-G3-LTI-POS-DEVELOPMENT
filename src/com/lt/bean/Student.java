@@ -73,4 +73,7 @@ public class Student extends User {
 		this.branch = branch;
 	}
 
+	public Student() {
+		super();
+	}
 }

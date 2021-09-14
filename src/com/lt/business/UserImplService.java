@@ -1,10 +1,9 @@
 package com.lt.business;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import com.lt.DAO.StudentDAO;
+import com.lt.DAO.UserDAO;
 import com.lt.bean.Admin;
 import com.lt.bean.Professor;
 import com.lt.bean.Student;
@@ -112,6 +111,14 @@ public class UserImplService extends User implements UserInterface {
 
 		}
 		sc.close();
+
+	}
+
+	UserDAO userDao = new UserDAO();
+
+	@Override
+	public void createUser(User user) {
+		userDao.createUser(user);
 
 	}
 

@@ -40,4 +40,22 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
+	public User(long userId, String userName, String userPassword, int roleId) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.roleId = roleId;
+	}
+
+	public User() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userPassword=" + userPassword + ", roleId="
+				+ roleId + "]";
+	}
+
 }

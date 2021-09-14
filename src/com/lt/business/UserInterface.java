@@ -24,4 +24,6 @@ public interface UserInterface {
 
 	public void signUp();
 
+	public void createUser(User user);
+
 }
