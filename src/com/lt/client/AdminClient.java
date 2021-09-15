@@ -15,10 +15,11 @@ import com.lt.business.GradesImplService;
 import com.lt.business.GradesInterface;
 import com.lt.business.UserImplService;
 import com.lt.business.UserInterface;
+import com.lt.jdbc.AdminJdbc;
 
 public class AdminClient {
 
-	public void adminMenu() {
+	public void adminMenu(Admin adminClientPage) {
 		UserInterface admin = new UserImplService();
 		Admin adminRole = new Admin();
 		Date currentDate = new Date();
@@ -35,12 +36,6 @@ public class AdminClient {
 		System.out.println("6. Display users");
 		System.out.println("7. Logout");
 
-//		System.out.println("Welcome to Admin Portal ---> ");
-//		System.out.println("Choose an Option ");
-//		System.out.println("1. SignUp ");
-//		System.out.println("2. Login ");
-//		System.out.println("3. Manage Password ");
-//		System.out.println("4. Exit ");
 		Scanner sc = new Scanner(System.in);
 
 		int choice = sc.nextInt();
@@ -105,6 +100,7 @@ public class AdminClient {
 			// if user is an admin
 			case 3:
 				AdminDAO adminDAO = new AdminDAO();
+				AdminJdbc adminJdbc = new AdminJdbc();
 				user.setRoleId(3);
 				userDao.createUser(user);
 				Admin newAdmin = new Admin();
@@ -116,8 +112,27 @@ public class AdminClient {
 				newAdmin.setGender(sc.next());
 				System.out.println("Enter Phone Number");
 				newAdmin.setPhoneNumber(sc.nextInt());
-				// create admin
-				adminDAO.createAdmin(newAdmin);
+				// create admin'
+				// validating the user credentials
+				// fetching input for user credentials
+//				System.out.println(("Enter UserName"));
+//				String username = sc.next();
+//				System.out.println(("Enter password"));
+//				String password = sc.next();
+//				User checkedUser = adminJdbc.validateUser(username, password);
+//				int profile = checkedUser.getRoleId();
+//				int userID11 = checkedUser.getUserId();
+//				adminJdbc.validateUser(username, password);
+				adminJdbc.createAdmin(newAdmin);
+				// fetching admin object from admin table
+//				Admin adminDetails= adminJdbc.fetchAdmin(userId);
+//				AdminClient adminClient= new AdminClient();
+				// redirecting to admin client landing page
+//				adminClient.adminClientPage(admin);
+				break;
+
+			case 7:
+				System.out.println("Succesfully logged out as on " + currentDate);
 				break;
 			}
 

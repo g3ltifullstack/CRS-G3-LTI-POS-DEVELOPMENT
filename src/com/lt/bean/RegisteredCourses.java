@@ -3,7 +3,7 @@ package com.lt.bean;
 public class RegisteredCourses {
 	private long courseId;
 	private String courseName;
-	private String courseDetails;
+	private String courseDetails; //courseDescription
 	private long noOfStudents;
 	private long professorId;
 

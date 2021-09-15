@@ -77,7 +77,7 @@ public class UserImplService extends User implements UserInterface {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter userID");
-		long userId = sc.nextLong();
+		int userId = sc.nextInt();
 
 		System.out.println("Enter userName");
 		String userName = sc.next();
