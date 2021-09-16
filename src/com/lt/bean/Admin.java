@@ -5,6 +5,15 @@ public class Admin extends User {
 	private String name;
 	private String gender;
 	private long phoneNumber;
+	private int userid;
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 
 	public int getAdminId() {
 		return adminId;
@@ -38,12 +47,13 @@ public class Admin extends User {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Admin(int adminId, String name, String gender, long phoneNumber) {
+	public Admin(int adminId, String name, String gender, long phoneNumber, int userid) {
 		super();
 		this.adminId = adminId;
 		this.name = name;
 		this.gender = gender;
 		this.phoneNumber = phoneNumber;
+		this.userid = userid;
 	}
 
 	public Admin() {
@@ -53,7 +63,7 @@ public class Admin extends User {
 	@Override
 	public String toString() {
 		return "Admin [adminId=" + adminId + ", name=" + name + ", gender=" + gender + ", phoneNumber=" + phoneNumber
-				+ "]";
+				+ ", userid=" + userid + "]";
 	}
 
 }

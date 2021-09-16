@@ -42,7 +42,7 @@ public class StudentClient {
 				System.out.println("Enter Password: ");
 				String password = sc.next();
 				// Manage User method
-				student.manageUser(userName, password);
+				student.validateUser(userName, password);
 				isExecuted = true;
 				System.out.println("Username and Password submitted Successfully");
 				break;

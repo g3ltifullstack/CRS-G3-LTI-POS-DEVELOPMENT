@@ -7,6 +7,7 @@ import com.lt.DAO.AdminDAO;
 import com.lt.DAO.ProfessorDAO;
 import com.lt.DAO.StudentDAO;
 import com.lt.DAO.UserDAO;
+import com.lt.DAO.UserDAOImpl;
 import com.lt.bean.Admin;
 import com.lt.bean.Professor;
 import com.lt.bean.Student;
@@ -26,24 +27,53 @@ public class AdminClient {
 		// display contents of Admin client landing page
 		System.out.println("Succesfully logged in as ADMIN on " + currentDate);
 
-		System.out.println("Welcome " + adminRole.getName());
 		System.out.println("Choose an option");
 		System.out.println("1. Create user");
 		System.out.println("2. Update user");
 		System.out.println("3. Delete user");
-		System.out.println("4. Add a new Course");
-		System.out.println("5. Delete Course");
-		System.out.println("6. Display users");
-		System.out.println("7. Logout");
+		System.out.println("4. Approve user");
+
+		System.out.println("5. Add a new Course");
+		System.out.println("6. Delete Course");
+
+		System.out.println("7. Display users");
+		System.out.println("8. Logout");
 
 		Scanner sc = new Scanner(System.in);
+		UserDAO userDao = new UserDAOImpl();
 
 		int choice = sc.nextInt();
 		switch (choice) {
 		// create a new user
 		case 1:
 			User user = new User();
-			UserDAO userDao = new UserDAO();
+			Admin adminUser = new Admin();
+			// for creating we need inputs from user
+
+			System.out.println("Enter adminid");
+			int adminid = sc.nextInt();
+			adminUser.setAdminId(adminid);
+			System.out.println("Enter Name");
+			adminUser.setName(sc.next());
+			System.out.println("Enter Gender");
+			adminUser.setGender(sc.next());
+			System.out.println("Enter Phone number");
+			adminUser.setPhoneNumber(sc.nextLong());
+			System.out.println("Enter userid ");
+
+			int userid = sc.nextInt();
+			adminUser.setUserId(userid);
+			System.out.println("Creating your User-> ");
+			AdminJdbc adminJdbc1 = new AdminJdbc();
+
+			adminJdbc1.createAdmin(adminUser);
+			System.out.println("Thanks your User has been registred now in our Database");
+
+			break;
+
+//			// update an existing user
+		case 2:
+			user = new User();
 
 			System.out.println("Enter UserId");
 			int userId = sc.nextInt();
@@ -52,90 +82,16 @@ public class AdminClient {
 			user.setUserName(sc.next());
 			System.out.println("Enter Password");
 			user.setUserPassword(sc.next());
+			System.out.println("Enter roleId");
+			user.setRoleId(sc.nextInt());
+			System.out.println("updating user");
+			// update user
+			userDao.updateUser(userId, user);
+			System.out.println("updated user successfully");
 
-			System.out.println("Enter Profile ");
-			System.out.println("1. Student");
-			System.out.println("2. Professor");
-			System.out.println("3. Admin");
-			int profileOption = sc.nextInt();
-			switch (profileOption) {
-			// if user is a student
-			case 1:
-
-				user.setRoleId(1);
-				userDao.createUser(user);
-				Student student = new Student();
-				student.setStudentId(userId);
-				System.out.println("Enter Name");
-				student.setName(sc.next());
-				System.out.println("Enter gender");
-				student.setGender(sc.next());
-				System.out.println("Enter Phone Number");
-				student.setPhoneNumber(sc.nextInt());
-				System.out.println("Enter Semester");
-				student.setSemester(sc.nextInt());
-				System.out.println("Enter Branch");
-				student.setBranch(sc.next());
-
-				// create student
-				StudentDAO studentDAO = new StudentDAO();
-				studentDAO.signUpStudent(student);
-				break;
-
-			case 2:
-				ProfessorDAO professorDAO = new ProfessorDAO();
-				user.setRoleId(2);
-				userDao.createUser(user);
-				Professor professor = new Professor();
-				System.out.println("Enter ID");
-				professor.setProfessorId(sc.nextInt());
-				System.out.println("Enter Name");
-				professor.setProfessorName(sc.next());
-				System.out.println("Enter Department");
-				professor.setDepartment(sc.next());
-				// create professor
-				professorDAO.createProfessor(professor);
-				break;
-
-			// if user is an admin
-			case 3:
-				AdminDAO adminDAO = new AdminDAO();
-				AdminJdbc adminJdbc = new AdminJdbc();
-				user.setRoleId(3);
-				userDao.createUser(user);
-				Admin newAdmin = new Admin();
-				System.out.println("Enter ID");
-				newAdmin.setAdminId(sc.nextInt());
-				System.out.println("Enter Name");
-				newAdmin.setName(sc.next());
-				System.out.println("Enter gender");
-				newAdmin.setGender(sc.next());
-				System.out.println("Enter Phone Number");
-				newAdmin.setPhoneNumber(sc.nextInt());
-				// create admin'
-				// validating the user credentials
-				// fetching input for user credentials
-//				System.out.println(("Enter UserName"));
-//				String username = sc.next();
-//				System.out.println(("Enter password"));
-//				String password = sc.next();
-//				User checkedUser = adminJdbc.validateUser(username, password);
-//				int profile = checkedUser.getRoleId();
-//				int userID11 = checkedUser.getUserId();
-//				adminJdbc.validateUser(username, password);
-				adminJdbc.createAdmin(newAdmin);
-				// fetching admin object from admin table
-//				Admin adminDetails= adminJdbc.fetchAdmin(userId);
-//				AdminClient adminClient= new AdminClient();
-				// redirecting to admin client landing page
-//				adminClient.adminClientPage(admin);
-				break;
-
-			case 7:
-				System.out.println("Succesfully logged out as on " + currentDate);
-				break;
-			}
-
+		case 8:
+			System.out.println("Succesfully logged out as on " + currentDate);
+			break;
 		}
 		sc.close();
 

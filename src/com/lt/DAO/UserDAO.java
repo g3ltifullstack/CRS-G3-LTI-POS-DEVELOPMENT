@@ -1,26 +1,68 @@
 package com.lt.DAO;
 
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
+import com.lt.bean.Admin;
+import com.lt.bean.Professor;
+import com.lt.bean.Student;
 import com.lt.bean.User;
+import com.lt.utils.DBUtil;
 
-public class UserDAO {
-	public static List<User> userDetails = new ArrayList<>();
-	static {
-		userDetails.add(new User(101, "Biswarup", "bis", 101));
-		userDetails.add(new User(102, "Akshay", "aks", 102));
-		userDetails.add(new User(103, "Akhilesh", "akh", 103));
-		userDetails.add(new User(104, "Nikita", "nik", 104));
-		userDetails.add(new User(105, "Bhabani", "bha", 105));
-		userDetails.add(new User(106, "Srinivas", "sri", 106));
+public interface UserDAO {
+	public User validateUser(String username, String password);
+
+	public Student fetchStudent(int studentId);
+
+	public Admin fetchAdmin(int adminId);
+
+	public Professor fetchProfessor(int professorId);
+
+	public void createUser(User user);
+
+	public void createStudent(Student student);
+
+	public void createProfessor(Professor professor);
+
+	public void createAdmin(Admin admin);
+
+	public void updateUser(int userId, User user);
+
+	public void updateStudent(int studentId, Student student);
+
+	public void updateProfessor(int professorId, Professor professor);
+
+	public void updateAdmin(int adminId, Admin admin);
+
+	public List<Student> displayStudents();
+
+	public List<Professor> displayProfessors();
+
+	public List<Admin> displayAdmins();
+
+	default public void deleteUser(int userId, String query) {
+
+		// Establishing the connection
+		Connection connection = DBUtil.getConnection();
+		try {
+
+			// Establishing the connection
+			PreparedStatement stmt = null;
+
+			stmt = connection.prepareStatement(query);
+			stmt.setInt(1, userId);
+			// Executing query
+			int rs = stmt.executeUpdate();
+			if (rs > 0) {
+				return;
+			}
+//				else 
+//				throw new UserNotFoundException();
+
+		} catch (SQLException ex) {
+			ex.getMessage();
+		}
 	}
-
-	public List<User> createUser(User User) {
-		userDetails.add(User);
-		System.out.println(userDetails);
-		return userDetails;
-
-	}
-
 }

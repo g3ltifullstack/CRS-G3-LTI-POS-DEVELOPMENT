@@ -6,7 +6,9 @@ import com.lt.bean.Student;
 import com.lt.bean.User;
 
 public interface UserInterface {
-	public User manageUser(String username, String password);
+	public User validateUser(String username, String password);
+
+	public void createAdmin(Admin admin);
 
 	public Student fetchStudent(int studentId);
 
@@ -25,5 +27,7 @@ public interface UserInterface {
 	public void signUp();
 
 	public void createUser(User user);
+
+	public void updateAdmin(int adminId, Admin admin);
 
 }

@@ -4,25 +4,27 @@ import java.util.Scanner;
 
 import com.lt.DAO.StudentDAO;
 import com.lt.DAO.UserDAO;
+import com.lt.DAO.UserDAOImpl;
 import com.lt.bean.Admin;
 import com.lt.bean.Professor;
 import com.lt.bean.Student;
 import com.lt.bean.User;
+import com.lt.jdbc.AdminJdbc;
 
 public class UserImplService extends User implements UserInterface {
 	User user = new User();
+	UserDAO userDao = new UserDAOImpl();
+
 	Student student;
 
 	@Override
-	public User manageUser(String username, String password) {
+	public User validateUser(String username, String password) { // bh bh
 		System.out.println("Manage User--->>");
-		if (username != null && password != null) {
-			System.out.println("Set Username:->");
-			user.setUserName(username);
-			System.out.println("Set Password:->");
-			user.setUserPassword(password);
-		}
+		User user = userDao.validateUser(username, password); //bh bh
+		if (user == null)
+			System.out.println("No user Found!!");
 		return user;
+
 	}
 
 	@Override
@@ -33,8 +35,8 @@ public class UserImplService extends User implements UserInterface {
 
 	@Override
 	public Admin fetchAdmin(int adminId) {
-		// TODO Auto-generated method stub
-		return null;
+		AdminJdbc adminjdbc = new AdminJdbc();
+		return adminjdbc.fetchAdmin(adminId);
 	}
 
 	@Override
@@ -49,15 +51,6 @@ public class UserImplService extends User implements UserInterface {
 		System.out.println("display student method");
 		StudentDAO studentDAO = new StudentDAO();
 		studentDAO.signUpStudent(student);
-//		List<Student> list = new ArrayList<>();
-//		System.out.println("Adding List of Students");
-//		list.add(new Student(101, "Biswarup", "m", 101, 1, "cse"));
-//		list.add(new Student(102, "Akshay", "m", 102, 2, "cse"));
-//		list.add(new Student(103, "Akhilesh", "m", 103, 3, "cse"));
-//		list.add(new Student(104, "Nikita", "f", 104, 4, "cse"));
-//		list.add(new Student(105, "Bhabani", "m", 105, 5, "mechanical"));
-//		list.add(new Student(106, "Srinivas", "m", 106, 6, "mca"));
-//		System.out.println("Print the List of Student Details : - > " + list);
 	}
 
 	@Override
@@ -114,11 +107,21 @@ public class UserImplService extends User implements UserInterface {
 
 	}
 
-	UserDAO userDao = new UserDAO();
-
 	@Override
 	public void createUser(User user) {
 		userDao.createUser(user);
+
+	}
+
+	@Override
+	public void createAdmin(Admin admin) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateAdmin(int adminId, Admin admin) {
+		// TODO Auto-generated method stub
 
 	}
 

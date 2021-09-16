@@ -89,6 +89,7 @@ public class AdminJdbc {
 	public void createAdmin(Admin admin) {
 
 		// Establishing the connection
+		System.out.println("establishing connection");
 		Connection connection = DBUtil.getConnection();
 		PreparedStatement stmt = null;
 
@@ -97,13 +98,15 @@ public class AdminJdbc {
 			stmt = connection.prepareStatement(SQLConstantQueries.INSERT_ADMIN);
 			int adminid = admin.getAdminId();
 			String name = admin.getName();
-			long phoneNo = admin.getPhoneNumber();
 			String gender = admin.getGender();
+			long phoneNo = admin.getPhoneNumber();
+			int userid = admin.getUserid();
 
 			stmt.setInt(1, adminid);
 			stmt.setString(2, name);
 			stmt.setString(3, gender);
 			stmt.setLong(4, phoneNo);
+			stmt.setInt(5, userid);
 
 			// Executing query
 			stmt.executeUpdate();
