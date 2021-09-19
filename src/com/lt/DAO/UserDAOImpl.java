@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
 
 import com.lt.bean.Admin;
 import com.lt.bean.Professor;
@@ -14,6 +17,7 @@ import com.lt.constants.SQLConstantQueries;
 import com.lt.utils.DBUtil;
 
 public class UserDAOImpl implements UserDAO {
+	private static Logger logger  = Logger.getLogger(UserDAOImpl.class);
 
 	@Override
 	public User validateUser(String username, String userpassword) { // bh bh
@@ -93,7 +97,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			// Declaring prepared statement and executing query
-			System.out.println("Updating the user and executing it");
+			logger.info("Updating the user and executing it");
 			stmt = connection.prepareStatement(SQLConstantQueries.UPDATE_USER);
 			int userId1 = user.getUserId();
 			String username = user.getUserName();
@@ -107,7 +111,7 @@ public class UserDAOImpl implements UserDAO {
 
 			// Executing query
 			stmt.executeUpdate();
-			System.out.println("Updated the record");
+			logger.info("Updated the record");
 
 		} catch (SQLException ex) {
 			ex.getMessage();
@@ -144,9 +148,37 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 
+	// provide details of all admins
 	@Override
 	public List<Admin> displayAdmins() {
-		// TODO Auto-generated method stub
+
+		Connection connection = DBUtil.getConnection();
+		PreparedStatement stmt = null;
+
+		try {
+			stmt = connection.prepareStatement(SQLConstantQueries.DISPLAY_ADMINS);
+
+			ResultSet rs = stmt.executeQuery();
+
+			List<Admin> list = new ArrayList<Admin>();
+			logger.info("Display admins --");
+			// Creating ArrayList of admin
+			while (rs.next()) {
+				Admin admin = new Admin();
+				admin.setAdminId(rs.getInt("adminid"));
+				admin.setName(rs.getString("name"));
+				admin.setGender(rs.getString("gender"));
+				admin.setPhoneNumber(rs.getLong("phonenumber"));
+				admin.setUserid(rs.getInt("userid"));
+				list.add(admin);
+			}
+
+			// returning list of admins
+			return list;
+		} catch (SQLException ex) {
+			ex.getMessage();
+		}
+
 		return null;
 	}
 

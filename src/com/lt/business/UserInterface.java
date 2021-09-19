@@ -1,5 +1,8 @@
 package com.lt.business;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import com.lt.bean.Admin;
 import com.lt.bean.Professor;
 import com.lt.bean.Student;
@@ -24,7 +27,7 @@ public interface UserInterface {
 
 	public void login();
 
-	public void signUp();
+//	public void signUp();
 
 	public void createUser(User user);
 

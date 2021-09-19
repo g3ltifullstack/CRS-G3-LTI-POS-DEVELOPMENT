@@ -8,13 +8,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.lt.bean.Admin;
+import com.lt.bean.Student;
 import com.lt.bean.User;
 import com.lt.constants.SQLConstantQueries;
+import com.lt.exception.StudentNotFoundForApprovalException;
 import com.lt.utils.DBUtil;
 
 public class AdminJdbc {
-
+	
+	private static Logger logger = Logger.getLogger(AdminJdbc.class);
 	public User validateUser(String username, String pass) {
 		// Step 2
 		// Declare the Connection or prepared statement variable here
@@ -26,7 +31,7 @@ public class AdminJdbc {
 			// // Step 3 Register Driver here and create connection and Step 4 make/open a
 			// connection
 
-			System.out.println("Connecting to database...");
+			logger.info("Connecting to database...");
 			conn = DBUtil.getConnection();
 
 			// STEP 4: Execute a query
@@ -50,7 +55,7 @@ public class AdminJdbc {
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
-		System.out.println("Goodbye!");
+		logger.info("Goodbye!");
 		return null;
 	}
 
@@ -110,7 +115,7 @@ public class AdminJdbc {
 
 			// Executing query
 			stmt.executeUpdate();
-			System.out.println(("Admin" + " added!"));
+			logger.info(("Admin" + " added!"));
 
 		} catch (SQLException ex) {
 			ex.getMessage();
@@ -178,6 +183,81 @@ public class AdminJdbc {
 		}
 
 		return null;
+	}
+	
+	/**
+	 * Approve Student using SQL commands
+	 * @param studentId
+	 * @throws StudentNotFoundException
+	 */
+	public void approveStudent(int studentId) throws StudentNotFoundForApprovalException {
+		
+		Connection connection = DBUtil.getConnection();
+		PreparedStatement stmt = null;
+		try {
+			String sql = SQLConstantQueries.APPROVE_STUDENT_QUERY;
+			stmt = connection.prepareStatement(sql);
+			
+			stmt.setInt(1,studentId);
+			int row = stmt.executeUpdate();
+			
+			logger.info(row + " student approved.");
+			if(row == 0) {
+				logger.error("Student with studentId: " + studentId + " not found.");
+				throw new StudentNotFoundForApprovalException(studentId);
+			}
+			
+			logger.info("Student with studentId: " + studentId + " approved by admin.");
+			
+		}catch(SQLException se) {
+			
+			logger.error(se.getMessage());
+			
+		}
+		
+	}
+	
+	/**
+	 * Fetch Students yet to approved using SQL commands
+	 * @return List of Students yet to approved
+	 */
+
+	public List<Student> displayAwaitingAdmissionOfStudents() {
+		Connection connection = DBUtil.getConnection();
+
+		PreparedStatement stmt = null;
+		List<Student> userList = new ArrayList<Student>();
+		try {
+			
+			String sql = SQLConstantQueries.VIEW_PENDING_ADMISSION_QUERY;
+			stmt = connection.prepareStatement(sql);
+			ResultSet resultSet = stmt.executeQuery();
+
+			while(resultSet.next()) {
+				
+				Student user = new Student();
+				user.setStudentId(resultSet.getInt(1));
+				user.setName(resultSet.getString(2));
+				user.setGender(resultSet.getString(3));
+				user.setPhoneNumber(resultSet.getInt(4));
+				user.setSemester(resultSet.getInt(5));
+				user.setBranch(resultSet.getString(6));
+				user.setUserId(resultSet.getInt(7));
+
+				userList.add(user);
+				
+			}
+			
+			logger.info(userList.size() + " students have pending-approval.");
+			
+		}catch(SQLException se) {
+			
+			logger.error(se.getMessage());
+			
+		}
+		
+		return userList;
+		
 	}
 
 }

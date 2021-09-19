@@ -1,6 +1,6 @@
 package com.lt.bean;
 
-public class Student extends User {
+public class Student {
 
 	private int studentId;
 	private String name;
@@ -8,6 +8,16 @@ public class Student extends User {
 	private int phoneNumber;
 	private int semester;
 	private String branch;
+	private int userId;
+	private boolean isApproved;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public int getStudentId() {
 		return studentId;
@@ -56,14 +66,18 @@ public class Student extends User {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "Student [studentId=" + studentId + ", name=" + name + ", gender=" + gender + ", phoneNumber="
-				+ phoneNumber + ", semester=" + semester + ", branch=" + branch + "]";
+	public boolean isApproved() {
+		return isApproved;
 	}
 
-	public Student(int studentId, String name, String gender, int phoneNumber, int semester, String branch) {
+	public void setApproved(boolean isApproved) {
+		this.isApproved = isApproved;
+	}
+
+	public Student(int studentId, String name, String gender, int phoneNumber, int semester, String branch, int userId,
+			boolean isApproved) {
 		super();
 		this.studentId = studentId;
 		this.name = name;
@@ -71,7 +85,17 @@ public class Student extends User {
 		this.phoneNumber = phoneNumber;
 		this.semester = semester;
 		this.branch = branch;
+		this.userId = userId;
+		this.isApproved = isApproved;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", name=" + name + ", gender=" + gender + ", phoneNumber="
+				+ phoneNumber + ", semester=" + semester + ", branch=" + branch + ", userId=" + userId + "]";
+	}
+
+	
 
 	public Student() {
 		super();

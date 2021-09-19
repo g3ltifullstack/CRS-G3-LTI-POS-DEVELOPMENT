@@ -1,32 +1,82 @@
 package com.lt.bean;
 
-public class Notification {
-	private long notificationId;
-	private boolean notificationStatus;
-	private String notificationMesssage;
+import com.lt.constants.NotificationType;
 
-	public long getNotificationId() {
+public class Notification {
+	private int notificationId;
+	private int studentId;
+	private NotificationType type;
+	private String referenceId;
+	
+	/**
+	 * Parameterized constructor
+	 * @param notificationId: notification id in the database
+	 * @param studentId: student id of the student
+	 * @param type: type of notificaton
+	 * @param referenceId: reference id for the payment
+	 */
+	public Notification(int notificationId,int studentId, NotificationType type,String referenceId)
+	{
+		this.notificationId = notificationId;
+		this.studentId = studentId;
+		this.type = type;
+		this.referenceId = referenceId;
+	}
+	
+	/**
+	 * Method to get Notification Id
+	 * @return Notification Id
+	 */
+	public int getNotificationId() {
 		return notificationId;
 	}
-
-	public void setNotificationId(long notificationId) {
-		this.notificationId = notificationId;
+	
+	/**
+	 * Method to get Student Id of student enrolled in the course
+	 * @return Student Id
+	 */
+	public int getStudentId() {
+		return studentId;
+	}
+	
+	/**
+	 * Method to set Student Id of student enrolled in the course
+	 * @param studentId
+	 */
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	
+	/**
+	 * Method to get Notification Type
+	 * @return Notification Type
+	 */
+	public NotificationType getType() {
+		return type;
+	}
+	
+	/** 
+	 * Method to set Notification Type
+	 * @param type
+	 */
+	public void setType(NotificationType type) {
+		this.type = type;
 	}
 
-	public boolean isNotificationStatus() {
-		return notificationStatus;
+	/**
+	 * Method to get Reference Id
+	 * @return Reference Id
+	 */
+	public String getReferenceId() {
+		return referenceId;
 	}
 
-	public void setNotificationStatus(boolean notificationStatus) {
-		this.notificationStatus = notificationStatus;
-	}
-
-	public String getNotificationMesssage() {
-		return notificationMesssage;
-	}
-
-	public void setNotificationMesssage(String notificationMesssage) {
-		this.notificationMesssage = notificationMesssage;
+	/**
+	 * Method to set Reference Id
+	 * @param referenceId
+	 */
+	public void setReferenceId(String referenceId) {
+		this.referenceId = referenceId;
 	}
 
 }
