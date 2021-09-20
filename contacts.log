@@ -1,0 +1,43 @@
+00:37:54,135 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:37:54,153 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:38:38,627 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:38:38,629 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:38:58,699 DEBUG PaymentImplService,main:28 -  paymnt mode -->101 for debit card ---> 102 for credit card
+00:39:15,707 DEBUG PaymentImplService,main:30 - enter card number -->card number should be 16 degit
+00:39:32,102 DEBUG PaymentImplService,main:32 - enter card pin 
+00:39:45,923 DEBUG PaymentImplService,main:34 - enter paymnt remark
+00:39:55,185 DEBUG PaymentImplService,main:37 - setting valuse in object
+00:39:55,189 DEBUG PaymentImplService,main:45 - going to payment
+00:39:55,621 DEBUG PaymentImplService,main:47 - going to payment
+00:51:00,618 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:51:00,634 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:51:06,764 DEBUG PaymentImplService,main:28 -  paymnt mode -->101 for debit card ---> 102 for credit card
+00:51:12,587 DEBUG PaymentImplService,main:30 - enter card number -->card number should be 16 degit
+00:51:16,658 DEBUG PaymentImplService,main:32 - enter card pin 
+00:51:20,015 DEBUG PaymentImplService,main:34 - enter paymnt remark
+00:52:33,982 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:52:33,992 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:52:36,984 DEBUG PaymentImplService,main:28 -  paymnt mode -->101 for debit card ---> 102 for credit card
+00:52:39,574 DEBUG PaymentImplService,main:30 - enter card number -->card number should be 16 degit
+00:52:42,727 DEBUG PaymentImplService,main:32 - enter card pin 
+00:52:47,558 DEBUG PaymentImplService,main:34 - enter paymnt remark
+00:52:53,547 DEBUG PaymentImplService,main:37 - setting valuse in object
+00:52:53,589 DEBUG PaymentImplService,main:45 - going to payment
+00:55:07,447 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:55:07,458 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:55:14,532 DEBUG PaymentImplService,main:28 -  paymnt mode -->101 for debit card ---> 102 for credit card
+00:55:19,047 DEBUG PaymentImplService,main:30 - enter card number -->card number should be 16 degit
+00:55:22,386 DEBUG PaymentImplService,main:32 - enter card pin 
+00:55:25,294 DEBUG PaymentImplService,main:34 - enter paymnt remark
+00:55:31,634 DEBUG PaymentImplService,main:37 - setting valuse in object
+00:55:31,670 DEBUG PaymentImplService,main:45 - going to payment
+00:56:14,387 DEBUG PaymentImplService,main:25 - inter paymnt details
+00:56:14,401 DEBUG PaymentImplService,main:26 -  enter amount--> enter only numeric value
+00:56:19,062 DEBUG PaymentImplService,main:28 -  paymnt mode -->101 for debit card ---> 102 for credit card
+00:56:21,541 DEBUG PaymentImplService,main:30 - enter card number -->card number should be 16 degit
+00:56:24,879 DEBUG PaymentImplService,main:32 - enter card pin 
+00:56:29,153 DEBUG PaymentImplService,main:34 - enter paymnt remark
+00:56:42,336 DEBUG PaymentImplService,main:37 - setting valuse in object
+00:56:42,394 DEBUG PaymentImplService,main:45 - going to payment
+00:58:29,797 DEBUG PaymentImplService,main:47 - going to payment
+01:16:52,946  INFO PaymentImplService,main:59 - payment id=1student name=biswaroop amount=500.0 payment statusdone payment mode =102
