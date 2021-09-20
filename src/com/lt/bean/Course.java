@@ -3,46 +3,91 @@ package com.lt.bean;
 public class Course {
 
 	private int courseId;
-	private String courseName;
+	private String courseTitle;
 	private String courseDescription;
-	private double courseFee;
-	private long professorId;
-	private long noOfStudent;
+	private String branch;
+	private int credits;
+
+	private int catalogId;
+	private int semester;
+
+	/**
+	 * Default Constructor
+	 */
+	public Course() {
+
+	}
+
+	/**
+	 * Parameterized constructor
+	 */
+
+	public Course(int courseId, String courseTitle, String courseDescription, String branch, int credits, int catalogId,
+			int semester) {
+		super();
+		this.courseId = courseId;
+		this.courseTitle = courseTitle;
+		this.courseDescription = courseDescription;
+		this.branch = branch;
+		this.credits = credits;
+		this.catalogId = catalogId;
+		this.semester = semester;
+	}
+
 	public int getCourseId() {
 		return courseId;
 	}
+
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
-	public String getCourseName() {
-		return courseName;
+
+	public String getCourseTitle() {
+		return courseTitle;
 	}
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
+
+	public void setCourseTitle(String courseTitle) {
+		this.courseTitle = courseTitle;
 	}
+
 	public String getCourseDescription() {
 		return courseDescription;
 	}
+
 	public void setCourseDescription(String courseDescription) {
 		this.courseDescription = courseDescription;
 	}
-	public double getCourseFee() {
-		return courseFee;
+
+	public String getBranch() {
+		return branch;
 	}
-	public void setCourseFee(double courseFee) {
-		this.courseFee = courseFee;
+
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
-	public long getProfessorId() {
-		return professorId;
+
+	public int getCredits() {
+		return credits;
 	}
-	public void setProfessorId(long professorId) {
-		this.professorId = professorId;
+
+	public void setCredits(int credits) {
+		this.credits = credits;
 	}
-	public long getNoOfStudent() {
-		return noOfStudent;
+
+	public int getCatalogId() {
+		return catalogId;
 	}
-	public void setNoOfStudent(long noOfStudent) {
-		this.noOfStudent = noOfStudent;
+
+	public void setCatalogId(int catalogId) {
+		this.catalogId = catalogId;
 	}
-	
+
+	public int getSemester() {
+		return semester;
+	}
+
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
+
 }

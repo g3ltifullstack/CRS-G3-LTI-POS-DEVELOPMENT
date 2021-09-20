@@ -24,10 +24,19 @@ public class SQLConstantQueries {
 
 	public static final String INSERT_NOTIFICATION = "insert into notification(studentId,type,referenceId) values(?,?,?);";
 
-	public static final String GET_NOTIFICATION = "select * from notification where referenceId = ?;";
+	public static final String GET_NOTIFICATION = "select * from notification where referenceid = ?;";
 
 	public static final String GET_ROLE = "select rollid from user where userid = ? ";
 
 	public static final String VIEW_PENDING_ADMISSION_QUERY = "select studentid, studentname, gender, phonenumber, semester, branch, userid from student natural join user where isApproved = 0";
+	public static final String DELETE_COURSE_QUERY = "delete from course where coursecode = ?";
+	public static final String ADD_COURSE_QUERY = "insert into course(coursecode, coursename, catalogid) values (?, ?, ?)";
+	public static final String VIEW_COURSE_QUERY = "select courseCode, courseName, professorId from Course where catalogId = ?";
+	
+	
+	public static final String DISPLAY_COURSES= "SELECT * FROM course WHERE semester= ? AND branch =?";
 
+	public static final String INSERT_COURSE="INSERT INTO course VALUES (?,?,?,?,?,?,?)";
+	
+	public static final String DELETE_COURSE="DELETE FROM course WHERE courseid=" ;
 }

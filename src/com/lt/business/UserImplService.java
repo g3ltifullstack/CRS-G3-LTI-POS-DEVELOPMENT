@@ -21,13 +21,12 @@ public class UserImplService extends User implements UserInterface {
 	User user = new User();
 	UserDAO userDao = new UserDAOImpl();
 	private static Logger logger = Logger.getLogger(UserImplService.class);
-	AdminInterface admin = new AdminImplService();
 
 	Student student;
 
 	@Override
 	public User validateUser(String username, String password) { // bh bh
-		logger.debug("Manage User--->>");
+		logger.info("*******Validating the User********");
 		User user = userDao.validateUser(username, password); // bh bh
 		if (user == null)
 			logger.info("No user Found!!");
@@ -142,7 +141,7 @@ public class UserImplService extends User implements UserInterface {
 		});
 		System.out.println("USER ID          NAME          PHONE NUMBER      ");
 		for (Admin admin : admins) {
-			logger.info(String.format("%-15d | %-15s | % -15d\n", admin.getAdminId(), admin.getName(),
+			System.out.println(String.format("%-15d | %-15s | % -15d\n", admin.getAdminId(), admin.getName(),
 					admin.getPhoneNumber()));
 
 		}
