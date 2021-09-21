@@ -41,3 +41,32 @@
 00:56:42,394 DEBUG PaymentImplService,main:45 - going to payment
 00:58:29,797 DEBUG PaymentImplService,main:47 - going to payment
 01:16:52,946  INFO PaymentImplService,main:59 - payment id=1student name=biswaroop amount=500.0 payment statusdone payment mode =102
+22:18:27,460  INFO ProfessorImplService,main:31 - below showing registred student details
+22:18:27,494  INFO ProfessorImplService,main:34 - student id-->1 student name-->aksh gender-->msemester-->8 branch-->cs phonenumber-->65758
+22:18:27,495  INFO ProfessorImplService,main:34 - student id-->101 student name-->akshay gender-->malesemester-->2 branch-->ec phonenumber-->8871
+22:18:27,495  INFO ProfessorImplService,main:34 - student id-->104 student name-->ray gender-->malesemester-->2 branch-->ec phonenumber-->6983
+22:18:27,496  INFO ProfessorImplService,main:34 - student id-->105 student name-->bhabhani gender-->msemester-->6 branch-->cs phonenumber-->76543
+22:18:27,496  INFO ProfessorImplService,main:34 - student id-->106 student name-->akshay gender-->msemester-->7 branch-->cs phonenumber-->88763
+22:18:27,497  INFO ProfessorImplService,main:34 - student id-->107 student name-->srinivas gender-->msemester-->6 branch-->cs phonenumber-->887656
+22:18:27,498  INFO ProfessorImplService,main:34 - student id-->108 student name-->biswaroop gender-->msemester-->2 branch-->ec phonenumber-->887654
+22:18:27,499  INFO ProfessorImplService,main:34 - student id-->109 student name-->akhilesh1 gender-->msemester-->2 branch-->ec phonenumber-->76767
+22:21:13,486  INFO ProfessorImplService,main:31 - below showing registred student details
+22:21:13,493  INFO ProfessorImplService,main:34 - student id-->1 student name-->aksh gender-->msemester-->8 branch-->cs phonenumber-->65758
+22:21:13,494  INFO ProfessorImplService,main:34 - student id-->101 student name-->akshay gender-->malesemester-->2 branch-->ec phonenumber-->8871
+22:21:13,494  INFO ProfessorImplService,main:34 - student id-->104 student name-->ray gender-->malesemester-->2 branch-->ec phonenumber-->6983
+22:21:13,494  INFO ProfessorImplService,main:34 - student id-->105 student name-->bhabhani gender-->msemester-->6 branch-->cs phonenumber-->76543
+22:21:13,496  INFO ProfessorImplService,main:34 - student id-->106 student name-->akshay gender-->msemester-->7 branch-->cs phonenumber-->88763
+22:21:13,499  INFO ProfessorImplService,main:34 - student id-->107 student name-->srinivas gender-->msemester-->6 branch-->cs phonenumber-->887656
+22:21:13,501  INFO ProfessorImplService,main:34 - student id-->108 student name-->biswaroop gender-->msemester-->2 branch-->ec phonenumber-->887654
+22:21:13,511  INFO ProfessorImplService,main:34 - student id-->109 student name-->akhilesh1 gender-->msemester-->2 branch-->ec phonenumber-->76767
+22:24:03,677 DEBUG ProfessorImplService,main:57 - enter name of student
+22:24:17,221 DEBUG ProfessorImplService,main:60 - calling studentByName for getting data of akshay
+22:24:17,244  INFO ProfessorImplService,main:64 - student id-->101 student name-->akshay gender-->malesemester-->2 branch-->ec phonenumber-->8871
+22:41:27,386 ERROR GradeDAOImpl,main:59 - such student not exist  not existCan not issue data manipulation statements with executeQuery().
+22:51:36,148 ERROR GradeDAOImpl,main:62 - such student not exist  not exist!Statement.GeneratedKeysNotRequested!
+23:10:49,002  INFO GradesImplService,main:33 - Grade Inserted
+23:13:59,428  WARN GradeDAOImpl,main:55 - Grade inserted for student id-->101
+23:13:59,434 ERROR GradeDAOImpl,main:57 - Grade inserted for student id-->101
+23:13:59,435  INFO GradesImplService,main:33 - Grade Inserted
+23:16:41,258  WARN GradeDAOImpl,main:56 - Grade inserted for student id-->101
+23:16:41,262  INFO GradesImplService,main:33 - Grade Inserted

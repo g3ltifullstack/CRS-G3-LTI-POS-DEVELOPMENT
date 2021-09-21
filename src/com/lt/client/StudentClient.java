@@ -11,8 +11,6 @@ import com.lt.business.NotificationImplService;
 import com.lt.business.NotificationInterface;
 import com.lt.business.PaymentImplService;
 import com.lt.business.PaymentInterface;
-import com.lt.business.SemisterRegisterationImplService;
-import com.lt.business.SemisterRegisterationInterface;
 import com.lt.business.StudentImplService;
 import com.lt.business.StudentInterface;
 import com.lt.client.StudentClient;

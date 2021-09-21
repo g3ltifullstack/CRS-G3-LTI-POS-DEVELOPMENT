@@ -86,7 +86,7 @@ public static void main(String[] args) {
 			System.out.println("Enter password");
 			String password= sc.next();
 			
-			try{
+			
 				
 				// validating the user credentials
 				User checkedUser= userOperation.validateUser(username, password);
@@ -114,36 +114,29 @@ public static void main(String[] args) {
                     break;
 
 				//if user is a professor
-//				case 2:
-//					//fetching professor object from professor table
-//					Professor professor= userOperation.fetchProfessor(userId);
-//					ProfessorClient professorClient= new ProfessorClient();
-//					//redirecting to professor client landing page
-//					professorClient.professorClientPage(professor);
-//					continue;
-//
-//				//if user is an admin
-//				case 3:
-//					// fetching admin object from admin table
-//					Admin admin= userOperation.fetchAdmin(userId);
-//					AdminClient adminClient= new AdminClient();
-//					// redirecting to admin client landing page
-//					adminClient.adminClientPage(admin);
-//					continue;
-//				}
+                case 102:
+					System.out.println("enter professor operation");
+					
+					Professor professor= userOperation.fetchProfessor(userId1);
+					ProfessorClient professorClient= new ProfessorClient();
+					//redirecting to professor client landing page
+					
+						professorClient.professorOperation(professor);
+				
+					break;
+				}
+		
+				break;
+
 //	
-				}}
-			// catching the InvalidLoginException in catch block
-			catch(Exception e){}
-		//	continue;
-//				Object logger;
-//				logger.error(e.getMessage());				
-				continue;		
+				}
+					
+			break;		
+		}
 			
-			}
-			break;
 			
-		}}}
+			
+		}}
 
 
 

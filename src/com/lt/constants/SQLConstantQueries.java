@@ -24,4 +24,8 @@ public class SQLConstantQueries {
 	public static final String VIEW_ENROLLED_STUDENT_ID="SELECT studentid FROM register_course WHERE courseid=? AND courseregistrationstatus=1";
 	public final static String PAYMNT_UPDATE="INSERT INTO payment(amount,paymentstatus,paymentmode,cardnumber,cardpin,studentname,paymentremark) VALUES (?,?,?,?,?,?,?)";
 	public final static String PAYMENT_RECEPT="select paymentid,amount,paymentstatus,studentname,paymentmode from payment where studentname=?";
+	//Professor Operation query
+	public final static String  GRADE_UPLOAD="INSERT INTO GRADE(courseid,studentid,grade) VALUES (?,?,?)";
+	public final static String SELECT_STUDENT_PROF="select studentid,studentname,gender,semester,branch,phonenumber from student";
+    public final static String SELECT_STUDENT_BY_NAME="select studentid,studentname,gender,semester,branch,phonenumber from student where studentname=?";
 }

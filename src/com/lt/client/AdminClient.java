@@ -30,15 +30,15 @@ public class AdminClient {
 		case 2:
 			System.out.println("Login Portal");
 			// user login method
-			admin.login();
+			//admin.login();
 			System.out.println("Logged in Successfully");
 			System.out.println("Display Student Details");
 
-			admin.displayStudents();
+		//	admin.displayStudents();
 			System.out.println("Display Grade Details");
 
 			GradesInterface grade = new GradesImplService();
-			grade.uploadGrades();
+	//		grade.uploadGrades();
 			break;
 
 		case 3:
@@ -48,7 +48,7 @@ public class AdminClient {
 			System.out.println("Enter Password: ");
 			String password = sc.next();
 			// Manage User method
-			admin.manageUser(userName, password);
+	//		admin.manageUser(userName, password);
 			System.out.println("Username and Password submitted Successfully");
 			break;
 

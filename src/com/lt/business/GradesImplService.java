@@ -1,34 +1,41 @@
 package com.lt.business;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
-import com.lt.bean.Grade;
+import org.apache.log4j.Logger;
 
-public class GradesImplService extends Grade implements GradesInterface {
+import com.lt.DAO.GradeDAOImpl;
+import com.lt.DAO.GradeDAOInterface;
+import com.lt.bean.Course;
+import com.lt.bean.Student;
 
-	Grade grade;
-	List<Grade> list = new ArrayList<Grade>();
 
-	
-	public List<Grade> uploadGrades() {
-		System.out.println("Uploading Grade ");
-		System.out.println("Adding List of Grades");
-		list.add(new Grade(101, "A"));
-		list.add(new Grade(102, "B"));
-		list.add(new Grade(103, "A"));
-		list.add(new Grade(104, "A"));
-		list.add(new Grade(105, "C"));
-		list.add(new Grade(106, "B"));
-		System.out.println("Print the List of Grade Detail size : - > " + list);
-		return list;
+
+public class GradesImplService  implements GradesInterface {
+
+	private static Logger logger = Logger.getLogger(GradesImplService.class);
+	GradeDAOInterface gradeDao= new GradeDAOImpl();
+	@Override
+	public void displayGrades(Student student) {
+		logger.debug("***********************************REPORT CARD******************************");	
+		logger.debug("COURSE ID                    GRADE");
+		List<Course> courses = gradeDao.displayGrades(student);
+
+		courses.forEach(course -> logger.info(course.getCourseId()+"        "+course.getCourseName()));
+
+		
+	}
+ 
+	@Override
+	public void uploadGrades(int studentId, int courseId, String grade)  {
+		gradeDao.uploadGrades(studentId, courseId, grade);
+		
+
+		
 	}
 
-//	@Override
-//	public void displayGrades(List<Grade> list2) {
-//		System.out.println("Displaying Grade Details ");
-//		uploadGrades();
-//		System.out.println("Print the List of Grade Details : - > " + list);
-//	}
+	
+	
 
 }

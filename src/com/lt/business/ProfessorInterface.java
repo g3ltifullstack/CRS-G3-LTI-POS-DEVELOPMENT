@@ -6,10 +6,14 @@ import com.lt.bean.Professor;
 import com.lt.bean.Student;
 
 public interface ProfessorInterface {
-	public void selectCourse(int courseId, Professor professor);
+	
 
-	public void viewCourse(Professor professor);
+	public void displayRegisteredStudent();
+	public List<Professor> professorDetails(Professor professor);
+	public void studentByName();
+	
+	public void displaySelectedCoursesProfessor(Professor professor);
 
-	public List<Student> displayRegisteredStudent();
+
 
 }
