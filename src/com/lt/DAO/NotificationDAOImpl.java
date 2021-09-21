@@ -9,7 +9,6 @@ import java.util.UUID;
 
 import org.apache.log4j.Logger;
 
-import com.lt.business.NotificationInterface;
 import com.lt.constants.NotificationType;
 import com.lt.constants.PaymentMode;
 import com.lt.constants.SQLConstantQueries;

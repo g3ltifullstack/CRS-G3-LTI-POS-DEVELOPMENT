@@ -7,7 +7,6 @@ import com.lt.bean.Admin;
 import com.lt.bean.User;
 import com.lt.business.UserImplService;
 import com.lt.business.UserInterface;
-import com.lt.jdbc.AdminJdbc;
 
 public class UserClient {
 
@@ -26,7 +25,10 @@ public class UserClient {
 			System.out.println("Enter password");
 			String password = sc.next();
 
-			// validating the user credentials
+			
+			/**
+			 * Method for Login functionality
+			 */
 			User checkedUser = userInterface.validateUser(username, password); // bh bh
 			int profile = checkedUser.getRoleId(); // 3
 			int userId = checkedUser.getUserId(); // 4

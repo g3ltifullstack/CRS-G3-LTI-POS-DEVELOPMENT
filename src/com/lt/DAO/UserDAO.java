@@ -6,39 +6,20 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.lt.bean.Admin;
-import com.lt.bean.Professor;
-import com.lt.bean.Student;
 import com.lt.bean.User;
 import com.lt.utils.DBUtil;
 
 public interface UserDAO {
+	/**
+	 * Method to verify credentials of Users from DataBase
+	 * 
+	 * @param userId
+	 * @param password
+	 * @return Verify credentials operation status
+	 */
 	public User validateUser(String username, String password);
 
-	public Student fetchStudent(int studentId);
-
-	public Admin fetchAdmin(int adminId);
-
-	public Professor fetchProfessor(int professorId);
-
-	public void createUser(User user);
-
-	public void createStudent(Student student);
-
-	public void createProfessor(Professor professor);
-
-	public void createAdmin(Admin admin);
-
 	public void updateUser(int userId, User user);
-
-	public void updateStudent(int studentId, Student student);
-
-	public void updateProfessor(int professorId, Professor professor);
-
-	public void updateAdmin(int adminId, Admin admin);
-
-	public List<Student> displayStudents();
-
-	public List<Professor> displayProfessors();
 
 	public List<Admin> displayAdmins();
 

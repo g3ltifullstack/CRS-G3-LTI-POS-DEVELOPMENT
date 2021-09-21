@@ -10,17 +10,16 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.lt.bean.Admin;
-import com.lt.bean.Professor;
-import com.lt.bean.Student;
+
 import com.lt.bean.User;
 import com.lt.constants.SQLConstantQueries;
 import com.lt.utils.DBUtil;
 
 public class UserDAOImpl implements UserDAO {
-	private static Logger logger  = Logger.getLogger(UserDAOImpl.class);
+	private static Logger logger = Logger.getLogger(UserDAOImpl.class);
 
 	@Override
-	public User validateUser(String username, String userpassword) { // bh bh
+	public User validateUser(String username, String userpassword) {
 		Connection connection = DBUtil.getConnection();
 		PreparedStatement stmt = null;
 
@@ -28,8 +27,8 @@ public class UserDAOImpl implements UserDAO {
 
 			// Declaring prepared statement
 			stmt = connection.prepareStatement(SQLConstantQueries.VALIDATE_USER);
-			stmt.setString(1, username); // bh
-			stmt.setString(2, userpassword);// bh
+			stmt.setString(1, username);
+			stmt.setString(2, userpassword);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
@@ -45,48 +44,6 @@ public class UserDAOImpl implements UserDAO {
 		}
 //		
 		return null;
-	}
-
-	@Override
-	public Student fetchStudent(int studentId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Admin fetchAdmin(int adminId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Professor fetchProfessor(int professorId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void createUser(User user) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void createStudent(Student student) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void createProfessor(Professor professor) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void createAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -116,36 +73,6 @@ public class UserDAOImpl implements UserDAO {
 		} catch (SQLException ex) {
 			ex.getMessage();
 		}
-	}
-
-	@Override
-	public void updateStudent(int studentId, Student student) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateProfessor(int professorId, Professor professor) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateAdmin(int adminId, Admin admin) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Student> displayStudents() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Professor> displayProfessors() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	// provide details of all admins
